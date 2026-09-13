@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sabre phrase coder</title>
@@ -304,7 +305,7 @@ input:focus,select:focus{outline:2px solid var(--amber);outline-offset:-1px}
         </div>
         <button id="savebtn" disabled>Save phrase &nbsp;·&nbsp; enter</button>
         <div id="keys">
-          <code>1–6</code> choose value, cursor advances &nbsp;·&nbsp;
+          <code>1–7</code> choose value, cursor advances &nbsp;·&nbsp;
           <code>← →</code> move &nbsp;·&nbsp; <code>backspace</code> clear &nbsp;·&nbsp;
           <code>enter</code> save &nbsp;·&nbsp; <code>u</code> undo last phrase
         </div>
@@ -366,7 +367,7 @@ const store = {
 const O = {
   dir:    ['forward','back','hold'],
   steps:  ['0','1','2','3+'],
-  finish: ['none','lunge','step-in','stop cut','remise','other'],
+  finish: ['none','lunge','step-in','stop cut','counterattack','remise','other'],
   blade:  ['none','beat / on blade','parry taken','parry missed'],
   target: ['no hit','head','flank','chest','arm / cuff','back'],
   lights: ['left only','right only','both','neither'],
@@ -638,7 +639,7 @@ document.addEventListener('keydown',e=>{
   if(e.shiftKey&&e.key==='ArrowLeft'){ e.preventDefault(); V.seek(V.time()-3); return; }
   if(e.shiftKey&&e.key==='ArrowRight'){ e.preventDefault(); V.seek(V.time()+3); return; }
 
-  if(e.key>='1'&&e.key<='6'){ e.preventDefault(); pick(+e.key-1); return; }
+  if(e.key>='1'&&e.key<='7'){ e.preventDefault(); pick(+e.key-1); return; }
   if(e.key==='ArrowLeft'){ e.preventDefault(); cursor=Math.max(0,cursor-1); render(); return; }
   if(e.key==='ArrowRight'){ e.preventDefault(); cursor=Math.min(FIELDS.length-1,cursor+1); render(); return; }
   if(e.key==='Backspace'){ e.preventDefault(); clearField(); return; }
